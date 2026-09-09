@@ -34,6 +34,9 @@ hardhat-guard = "hardhat_guard.main:main"
 [tool.setuptools.packages.find]
 where = ["src"]
 
+[tool.setuptools.package-data]
+hardhat_guard = ["py.typed"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["src"]
@@ -47,6 +50,8 @@ target-version = "py310"
 select = ["E", "F", "I", "B", "UP", "N"]
 
 [tool.mypy]
-python_version = "3.10"
+# 3.12, not the 3.10 floor in requires-python: numpy's bundled stubs use
+# `type` statement syntax that mypy rejects under an older target.
+python_version = "3.12"
 packages = ["hardhat_guard"]
 ignore_missing_imports = true

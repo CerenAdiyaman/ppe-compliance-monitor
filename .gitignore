@@ -19,6 +19,7 @@ htmlcov/
 
 # Data and model artefacts
 data/*.db
+logs/*.log
 data/violations/
 models/*.pt
 runs/
